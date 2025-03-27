@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="sq">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>eVoting Kosova</title>
+    <link rel="icon"
+          href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🗳️</text></svg>">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Open+Sans:wght@400;600&display=swap"
+          rel="stylesheet">
+    <link rel="stylesheet" href="/css/homePageStyle.css">
+    <link rel="stylesheet" href="/css/footer.css">
+
+</head>
+<body>
+<div th:replace="~{fragments/header :: header}"></div>
+
+
+<main>
+    <section class="hero">
+        <h2>Mirë se vini në eVoting Kosova</h2>
+        <p>Porta juaj drejt votimit të sigurt dhe të aksesueshëm online.</p>
+
+        <a th:if="${isActive}" th:href="@{/login}" class="btn">Voto Tani</a>
+    </section>
+
+
+    <section id="parties" class="section">
+        <h3>Partitë Politike</h3>
+        <div class="content-grid">
+            <div class="card">
+                <h4>Partia 1</h4>
+                <p>Partia 1 është një parti politike progresive në Kosovë, e njohur për qëndrimet e saj për pavarësinë
+                    dhe drejtësinë.</p>
+            </div>
+            <div class="card">
+                <h4>Partia 2</h4>
+                <p>Partia 2 është një parti që mbështet ndërtimin e institucioneve demokratike dhe zhvillimin ekonomik
+                    të Kosovës.</p>
+            </div>
+            <div class="card">
+                <h4>Partia 3</h4>
+                <p>Partia 3 është një parti konservatore që ka luajtur një rol të rëndësishëm në periudhën e pasluftës
+                    në Kosovë.</p>
+            </div>
+            <div class="card">
+                <h4>Partia 4</h4>
+                <p>Partia 4 është një parti politike që fokusohet në mbrojtjen e të drejtave të qytetarëve dhe
+                    përmirësimin e sundimit të ligjit në Kosovë.</p>
+            </div>
+            <div class="card">
+                <h4>Partia 5 </h4>
+                <p>Partia 5 është një parti që angazhohet për të drejtat e komunitetit Ashkali dhe integrimin e tij në
+                    shoqërinë kosovare.</p>
+            </div>
+        </div>
+    </section>
+
+
+    <section id="candidates" class="section">
+        <h3>Njihuni me Kandidatët</h3>
+        <div class="content-grid">
+            <div class="card">
+                <h4>Kandidati 1</h4>
+                <p>Angazhohet për stabilitet ekonomik dhe krijim të vendeve të punës.</p>
+            </div>
+            <div class="card">
+                <h4>Kandidati 2</h4>
+                <p>Lufton për akses të barabartë dhe cilësi në shëndetësi.</p>
+            </div>
+            <div class="card">
+                <h4>Kandidati 3</h4>
+                <p>Përkrah veprimet për klimën dhe politikat e energjisë së ripërtërishme.</p>
+            </div>
+            <div class="card">
+                <h4>Kandidati 4</h4>
+                <p>Fuqi të rinjtë përmes arsimit dhe inovacionit.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="elections" class="section">
+        <h3>Zgjedhjet e Kaluara</h3>
+        <table class="elections-table">
+            <thead>
+            <tr>
+                <th>Viti</th>
+                <th>Partia Fitues</th>
+                <th>Fokusi Kryesor</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>2021</td>
+                <td>Partia A</td>
+                <td>Rimëkëmbja Ekonomike</td>
+            </tr>
+            <tr>
+                <td>2017</td>
+                <td>Partia B</td>
+                <td>Reformat në Shëndetësi</td>
+            </tr>
+            <tr>
+                <td>2013</td>
+                <td>Partia C</td>
+                <td>Nismat Mjedisore</td>
+            </tr>
+            <tr>
+                <td>2009</td>
+                <td>Partia D</td>
+                <td>Teknologjia dhe Inovacioni</td>
+            </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <section class="info-section">
+        <h3>Pse të Zgjedhni eVoting?</h3>
+        <p>Përjetoni të ardhmen e votimit me eVoting Kosova. I sigurt, i aksesueshëm dhe i thjeshtë për përdoruesit,
+            sjellim fuqinë e demokracisë në majë të gishtave tuaj.</p>
+    </section>
+</main>
+
+<div th:replace="~{fragments/footer :: footer}"></div>
+
+<script src="/js/index.js"></script>
+</body>
+</html>

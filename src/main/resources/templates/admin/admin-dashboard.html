@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="sq">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="/css/admin-dashboard.css">
+</head>
+<body>
+<div class="sidebar">
+    <a th:href="@{/}">
+        <h1 style="color: white;">eVoting Kosova</h1>
+    </a>
+    <a onclick="showSection('results')">Rezultatet në Kohë Reale</a>
+    <a onclick="showSection('manage')">Menaxho Zgjedhjet</a>
+    <a onclick="showSection('manageParties')">Menaxho Partite</a>
+    <a onclick="showSection('manageCandidates')">Menaxho Kandidatet</a>
+    <a onclick="showSection('feedbackFromUsers')">Feedback</a>
+
+    <a th:href="@{/admin/logout}" class="logout-button">Dil</a>
+</div>
+<div class="main-content">
+    <div class="header">Mirësevini në Panelin e Administratorit</div>
+
+    <div class="section active" id="results">
+        <h3>Rezultatet në Kohë Reale</h3>
+        <div class="results-chart">
+            <canvas id="resultsChart"></canvas>
+        </div>
+    </div>
+
+    <div class="section" id="manage">
+        <h3>Menaxho Zgjedhjet</h3>
+        <form th:action="@{/admin/create}" method="get" style="margin-bottom: 10px;">
+            <button type="submit" class="button">Krijo Zgjedhje të Re</button>
+        </form>
+
+        <ul class="elections-list">
+            <li th:each="election : ${elections}">
+                <p th:text="${election.name}"></p>
+                <div>
+                    <form th:action="@{/admin/election/{id}/toggle-status(id=${election.id})}" method="post"
+                          style="display: inline;">
+                        <button type="submit" class="button" th:text="${election.active} ? 'Active' : 'Inactive'"
+                                th:classappend="${election.active} ? ' active' : ' inactive'"></button>
+                    </form>
+                    <form th:action="@{/admin/election/{id}/edit(id=${election.id})}" method="get"
+                          style="display: inline;">
+                        <button type="submit" class="button">Ndrysho</button>
+                    </form>
+                    <form th:action="@{/admin/election/{id}/delete(id=${election.id})}" method="post"
+                          style="display: inline;">
+                        <button type="submit" class="button">Fshi</button>
+                    </form>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <div class="section" id="manageCandidates">
+        <h3>Menaxho Kandidatet</h3>
+        <form th:action="@{/admin/candidate/create}" method="get" style="margin-bottom: 10px;">
+            <button type="submit" class="button">Krijo Kandidat të Ri</button>
+        </form>
+
+        <ul class="candidates-list">
+            <li th:each="party : ${parties}">
+                <div class="party-section">
+                    <h4 class="party-name" th:text="${party.name}"></h4>
+                    <ul class="candidate-sublist">
+                        <li th:each="candidate : ${party.candidates}">
+                            <div class="candidate-info">
+                                <p th:text=" ${candidate.numberInParty} + ' - ' + ${candidate.firstName} + ' ' + ${candidate.lastName}"></p>
+                                <div class="candidate-buttons">
+                                    <form th:action="@{/admin/candidate/{id}/edit(id=${candidate.id})}" method="get" style="display: inline;">
+                                        <button type="submit" class="button">Ndrysho</button>
+                                    </form>
+                                    <form th:action="@{/admin/candidate/{id}/delete(id=${candidate.id})}" method="post" style="display: inline;">
+                                        <button type="submit" class="button">Fshi</button>
+                                    </form>
+                                </div>
+                            </div>
+                            <hr class="candidate-divider">
+                        </li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <div class="section" id="manageParties">
+        <h3>Menaxho Partite</h3>
+        <form th:action="@{/admin/party/create}" method="get" style="margin-bottom: 10px;">
+            <button type="submit" class="button">Krijo Parti të Re</button>
+        </form>
+
+        <ul class="parties-list">
+            <li th:each="party : ${parties}">
+                <p th:text="${party.name}"></p>
+                <div>
+                    <form th:action="@{/admin/party/{id}/edit(id=${party.id})}" method="get" style="display: inline;">
+                        <button type="submit" class="button">Ndrysho</button>
+                    </form>
+                    <form th:action="@{/admin/party/{id}/delete(id=${party.id})}" method="post"
+                          style="display: inline;">
+                        <button type="submit" class="button">Fshi</button>
+                    </form>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <div class="section" id="feedbackFromUsers">
+        <h3>Mesazhe nga Perdoruesit</h3>
+        <div id="feedback-list">
+        </div>
+    </div>
+
+
+</div>
+<script src="/js/admin-dashboard.js"></script>
+</body>
+</html>

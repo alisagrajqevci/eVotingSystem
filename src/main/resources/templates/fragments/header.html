@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="sq">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>eVoting Kosova</title>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Open+Sans:wght@400;600&display=swap"
+          rel="stylesheet">
+    <link rel="stylesheet" href="/css/homePageStyle.css">
+</head>
+<body>
+<header class="header">
+    <div class="logo">
+        <a th:href="@{/}" style="text-decoration: none">
+            <h1 style="color: white; font-size: 24px">eVoting Kosova</h1>
+        </a>
+    </div>
+    <nav class="nav">
+        <ul>
+            <li><a th:href="@{/}">Kryefaqja</a></li>
+            <li><a th:href="@{/candidates}">Partitë/Kandidatët</a></li>
+            <li><a th:href="@{/pastElections}">Zgjedhjet e Kaluara</a></li>
+            <li><a th:href="@{/contact}">Kontakti</a></li>
+            <a th:href="@{/admin/login}" class="btn">
+                Admin
+            </a>
+
+        </ul>
+    </nav>
+</header>

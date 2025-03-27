@@ -1,0 +1,50 @@
+.social-section {
+    margin-top: 40px;
+    text-align: center;
+    padding: 20px;
+    background: linear-gradient(90deg, #003d99, #005ce6);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.social-section h3 {
+    color: #e6f0ff;
+    margin-bottom: 20px;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.social-icons a {
+    text-decoration: none;
+    color: white;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background-color: #003366;
+    transition: background-color 0.3s;
+}
+
+.social-icons a:hover {
+    background-color: #005b99;
+}
+
+.footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #003366;
+    color: white;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+}
+
+.footer p {
+    margin: 5px 0;
+}

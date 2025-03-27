@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="sq">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Krijo Zgjedhje të Re</title>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/create-edit-candidate-party.css">
+</head>
+<body>
+<div class="sidebar">
+    <h2>eVoting Kosova</h2>
+    <a href="/admin/dashboard">Kthehu në Panelin e Administratorit</a>
+</div>
+<div class="main-content">
+    <div class="header">Krijo Zgjedhje të Re</div>
+
+    <form th:action="@{/admin/create}" method="post">
+        <div>
+            <label for="name">Emri i Zgjedhjes</label>
+            <input type="text" id="name" name="name" required>
+        </div>
+
+        <div>
+            <label for="description">Përshkrimi</label>
+            <textarea id="description" name="description"></textarea>
+        </div>
+
+        <div>
+            <label for="startDate">Data e Fillimit</label>
+            <input type="datetime-local" id="startDate" name="startDate" required>
+        </div>
+
+        <div>
+            <label for="endDate">Data e Mbarimit</label>
+            <input type="datetime-local" id="endDate" name="endDate" required>
+        </div>
+
+        <button type="submit" class="button">Krijo Zgjedhje</button>
+    </form>
+
+    <div th:if="${errorMessage != null}" class="error-message" th:text="${errorMessage}"
+         style="color: red; margin-top: 5px"></div>
+    <div th:if="${success != null}" class="success-message" th:text="${success}"></div>
+</div>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="sq">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Krijo Partinë</title>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/create-edit-candidate-party.css">
+</head>
+<body>
+<div class="sidebar">
+    <h2>eVoting Kosova</h2>
+    <a href="/admin/dashboard">Kthehu në Panelin e Administratorit</a>
+</div>
+<div class="main-content">
+    <div class="header">Krijo Partinë e Re</div>
+
+    <form th:action="@{/admin/party/create}" method="post">
+        <div>
+            <label for="name">Emri i Partisë</label>
+            <input type="text" id="name" name="name" required>
+        </div>
+        <div>
+            <label for="description">Pershkrimi i Partisë</label>
+            <input type="text" id="description" name="description" required>
+        </div>
+        <div>
+            <label for="election">Zgjidhni Zgjedhjen</label>
+            <select id="election" name="electionId" required>
+                <option th:each="election : ${elections}"
+                        th:value="${election.id}"
+                        th:text="${election.name}">Election</option>
+            </select>
+        </div>
+
+        <button type="submit" class="button">Krijo Partinë</button>
+    </form>
+</div>
+</body>
+</html>

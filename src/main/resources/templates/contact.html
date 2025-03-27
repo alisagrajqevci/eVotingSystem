@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="sq">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kontaktoni</title>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Open+Sans:wght@400;600&display=swap"
+          rel="stylesheet">
+    <link rel="stylesheet" href="/css/homePageStyle.css">
+    <link rel="stylesheet" href="/css/footer.css">
+    <link rel="stylesheet" href="/css/contact.css">
+</head>
+<body>
+<div th:replace="~{fragments/header :: header}"></div>
+
+<div class="container">
+    <h1>Na Kontaktoni</h1>
+    <p style="text-align: center;">Nëse keni pyetje, sugjerime apo shqetësime, jemi këtu për t'ju ndihmuar. Plotësoni formularin më poshtë për të na kontaktuar.</p>
+
+    <form class="contact-form" action="/submitContact" method="POST">
+        <input type="text" name="name" placeholder="Emri juaj" required>
+        <input type="email" name="email" placeholder="Email-i juaj" required>
+        <textarea name="message" rows="5" placeholder="Mesazhi juaj" required></textarea>
+        <button type="submit">Dërgo Mesazhin</button>
+    </form>
+
+</div>
+
+<div th:replace="~{fragments/footer :: footer}"></div>
+<script src="/js/contact.js"></script>
+</body>
+</html>

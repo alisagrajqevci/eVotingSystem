@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="sq">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Krijo Kandidat</title>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/create-edit-candidate-party.css">
+</head>
+<body>
+<div class="sidebar">
+    <h2>eVoting Kosova</h2>
+    <a href="/admin/dashboard">Kthehu në Panelin e Administratorit</a>
+</div>
+<div class="main-content">
+    <div class="header">Krijo Kandidat të Ri</div>
+
+    <form th:action="@{/admin/candidate/create}" method="post">
+        <div>
+            <label for="firstName">Emri</label>
+            <input type="text" id="firstName" name="firstName" required>
+        </div>
+
+        <div>
+            <label for="lastName">Mbiemri</label>
+            <input type="text" id="lastName" name="lastName" required>
+        </div>
+
+        <div>
+            <label for="party">Partia</label>
+            <select id="party" name="party.id" required>
+                <option th:each="party : ${parties}" th:value="${party.id}" th:text="${party.name}"></option>
+            </select>
+        </div>
+
+        <div>
+            <label for="election">Zgjedhja</label>
+            <select id="election" name="election.id" required>
+                <option th:each="election : ${elections}" th:value="${election.id}" th:text="${election.name}"></option>
+            </select>
+        </div>
+
+        <div>
+            <label for="numberInParty">Numri në Partinë</label>
+            <input type="number" id="numberInParty" name="numberInParty" required>
+        </div>
+
+        <button type="submit" class="button">Krijo Kandidat</button>
+    </form>
+    <div th:if="${error != null}" class="error-message" th:text="${error}"></div>
+    <div th:if="${success != null}" class="success-message" th:text="${success}"></div>
+</div>
+</body>
+</html>

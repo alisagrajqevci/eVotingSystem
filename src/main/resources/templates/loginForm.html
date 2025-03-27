@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>eVoting-Kosova</title>
+    <link rel="stylesheet" href="/css/loginForm.css"/>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather&family=Open+Sans&display=swap" rel="stylesheet">
+
+</head>
+<body>
+<div class="container">
+    <div class="info">
+        <i class="info-icon">i</i>
+        <span>Verifikohu</span>
+    </div>
+    <h1>Zgjedhjet parlamentare 2025</h1>
+    <form class="form" th:action="@{/login}" method="post" th:object="${voter}">
+        <!-- Personal Number Input -->
+        <div class="form-group">
+            <label for="personal-number">Numri personal i Kosovës</label>
+            <div class="input-group">
+                <i class="icon person-icon"></i>
+                <input
+                        type="text"
+                        id="personal-number"
+                        name="personalNumber"
+                        th:field="*{personalNumber}"
+                        placeholder="Numri personal i Kosovës"
+                        maxlength="10"
+                        required
+                />
+            </div>
+            <div th:if="${#fields.hasErrors('personalNumber')}" class="error">
+                <p style="color: red" th:errors="*{personalNumber}"></p>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="dob">Data e lindjes</label>
+            <div class="input-group">
+                <i class="icon calendar-icon"></i>
+                <input
+                        type="date"
+                        id="dob"
+                        name="birthdate"
+                        th:field="*{birthdate}"
+                        required
+                />
+            </div>
+            <div th:if="${#fields.hasErrors('birthdate')}" class="error">
+                <p style="color: red" th:errors="*{birthdate}"></p>
+            </div>
+        </div>
+
+        <button type="submit" class="btn" style="font-family: 'Merriweather', serif">Kalo ne fleten e votimit</button>
+    </form>
+    <div th:if="${error}" class="error" style="color: red">
+        <p th:text="${error}"></p>
+    </div>
+</div>
+<footer class="footer">
+    <p>&copy; 2025 Qeveria e Kosovës. Të gjitha të drejtat janë të rezervuara.</p>
+</footer>
+</body>
+</html>

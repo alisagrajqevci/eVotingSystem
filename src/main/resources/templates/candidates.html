@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Candidates Page</title>
+    <link rel="stylesheet" href="/css/homePageStyle.css">
+    <link rel="stylesheet" href="/css/candidates.css">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/css/footer.css">
+</head>
+<body>
+<div th:replace="~{fragments/header :: header}"></div>
+
+<div class="header1">
+    <h1>Partitë dhe Kandidatët</h1>
+</div>
+
+<div class="search-container">
+    <input
+            type="text"
+            id="search-input"
+            placeholder="Kërko partinë ose kandidatin..."
+            oninput="filterResults()"
+    />
+</div>
+
+<div id="party-section" class="party-container">
+</div>
+
+<div id="candidates-section" style="display: none;">
+    <div class="header">
+        <h2 id="candidates-title"></h2>
+        <button onclick="goBack()" class="back-button">Kthehu</button>
+    </div>
+    <div class="candidates-container">
+    </div>
+</div>
+
+<div th:replace="~{fragments/footer :: footer}"></div>
+
+<script src="/js/candidates.js"></script>
+</body>
+</html>

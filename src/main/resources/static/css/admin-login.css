@@ -1,0 +1,133 @@
+/* General Styling */
+body {
+    font-family: 'Merriweather', serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: #04468f;
+}
+
+/* Container Styling */
+.container {
+    background-color: #ffffff;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 6px 30px rgba(0, 0, 0, 0.2);
+    width: 90%;
+    max-width: 450px;
+    margin: auto;
+    text-align: center;
+}
+
+/* Info Section */
+.info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 15px;
+    color: #6c757d;
+    font-size: 0.95rem;
+}
+
+.info-icon {
+    font-size: 1.3rem;
+    font-weight: bold;
+    background-color: #d9e4f5;
+    color: #007bff;
+    border-radius: 50%;
+    padding: 7px;
+}
+
+/* Header Styling */
+h1 {
+    font-size: 1.8rem;
+    margin-bottom: 25px;
+    color: #333333;
+    font-weight: bold;
+}
+
+/* Form Styling */
+.form {
+    text-align: left;
+    margin-top: 10px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    font-size: 0.95rem;
+    margin-bottom: 8px;
+    color: #333333;
+    font-weight: 500;
+}
+
+.input-group {
+    display: flex;
+    align-items: center;
+    background-color: #f8f9fa;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    padding: 8px 12px;
+}
+
+.input-group .icon {
+    color: #6c757d;
+    margin-right: 12px;
+    font-size: 1.2rem;
+}
+
+.input-group input {
+    border: none;
+    outline: none;
+    background: transparent;
+    flex: 1;
+    font-size: 1rem;
+    color: #495057;
+    padding: 5px 0;
+}
+
+.input-group input::placeholder {
+    color: #adb5bd;
+}
+
+/* Button Styling */
+.btn {
+    display: block;
+    width: 100%;
+    padding: 12px 0;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    color: #ffffff;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.btn:hover {
+    background-color: #0056b3;
+    transform: scale(1.02);
+}
+
+/* Footer Section */
+.footer {
+    background-color: #007bff;
+    color: #ffffff;
+    text-align: center;
+    padding: 15px 0;
+    font-size: 0.95rem;
+    border-radius: 0 0 15px 15px;
+    margin-top: auto;
+}
+
+.footer p {
+    margin: 0;
+    font-size: 0.9rem;
+}

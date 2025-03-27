@@ -1,0 +1,225 @@
+/* Global Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Merriweather', serif;
+}
+
+body {
+    font-family: 'Merriweather Sans', sans-serif;
+    background-color: #f7f7f7;
+    color: #444;
+    line-height: 1.6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    color: #003366;
+    font-size: 2.8rem;
+    margin-bottom: 20px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.ballot-container {
+    background-color: #ffffff;
+    width: 100%;
+    max-width: 850px;
+    padding: 40px;
+    border-radius: 25px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.ballot-container h2 {
+    font-size: 1.8rem;
+    text-align: center;
+    color: #333;
+    margin-bottom: 25px;
+    font-weight: 600;
+}
+
+.instructions {
+    text-align: center;
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 25px;
+    line-height: 1.7;
+    font-weight: 400;
+}
+
+/* Party Section */
+.party-section, .candidate-section {
+    margin-bottom: 30px;
+    padding: 25px;
+    border-radius: 15px;
+    background-color: #f9f9f9;
+    border: 1px solid #e1e4e8;
+    transition: box-shadow 0.3s ease;
+}
+
+.party-section:hover, .candidate-section:hover {
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+}
+
+.party-section h3, .candidate-section h3 {
+    font-size: 1.5rem;
+    color: #003366;
+    margin-bottom: 15px;
+    text-align: center;
+    font-weight: 600;
+}
+
+/* Party Selection */
+.party-section label {
+    display: block;
+    margin: 15px 0;
+    font-size: 1.2rem;
+    color: #333;
+    cursor: pointer;
+    transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.party-section input[type="radio"] {
+    margin-right: 10px;
+    transform: scale(1.2);
+}
+
+.party-section label:hover {
+    transform: translateX(5px);
+    color: #0056b3;
+}
+
+.party-section input[type="radio"]:checked + label {
+    font-weight: 600;
+    color: #003366;
+}
+
+/* Candidate Section with Grid Layout */
+.candidate-section {
+    margin-bottom: 30px;
+    padding: 25px;
+    border-radius: 15px;
+    background-color: #f9f9f9;
+    border: 1px solid #e1e4e8;
+    transition: box-shadow 0.3s ease;
+}
+
+.candidate-section h3 {
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+/* Flexbox for Candidate Labels - 5 per row */
+.candidate-labels {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px; /* Space between candidate labels */
+    justify-content: center;
+}
+
+.candidate-section label {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin: 0;
+    font-size: 1.1rem;
+    color: #333;
+    cursor: pointer;
+    transition: transform 0.2s ease, color 0.2s ease;
+    width: 18%; /* Approximately 5 items per row */
+}
+
+.candidate-section input[type="checkbox"] {
+    margin-right: 10px;
+    transform: scale(1.2);
+}
+
+.candidate-section label:hover {
+    transform: translateX(5px);
+    color: #0056b3;
+}
+
+.candidate-section input[type="checkbox"]:checked + label {
+    font-weight: 600;
+    color: #003366;
+}
+
+/* Submit Button */
+.submit-btn {
+    width: 100%;
+    padding: 16px;
+    font-size: 1.3rem;
+    color: white;
+    background-color: #003366;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin-top: 30px;
+    font-weight: 600;
+}
+
+.submit-btn:hover {
+    background-color: #0056b3;
+    transform: translateY(-3px);
+}
+
+.submit-btn:active {
+    transform: translateY(1px);
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .ballot-container {
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 2.2rem;
+    }
+
+    .submit-btn {
+        font-size: 1.2rem;
+        padding: 14px;
+    }
+
+    .instructions {
+        font-size: 1rem;
+        margin-bottom: 20px;
+    }
+
+    .party-section label, .candidate-section label {
+        font-size: 1rem;
+    }
+
+    /* Adjust candidate grid for smaller screens */
+    .candidate-section label {
+        width: 45%; /* 2 per row on small screens */
+    }
+}
+
+/* Feedback Messages */
+.feedback {
+    text-align: center;
+    padding: 10px;
+    margin-top: 15px;
+    border-radius: 5px;
+    font-size: 1.1rem;
+}
+
+.feedback.success {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.feedback.error {
+    background-color: #f8d7da;
+    color: #721c24;
+}

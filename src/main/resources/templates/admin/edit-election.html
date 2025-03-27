@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="sq">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ndrysho Zgjedhjen</title>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/create-edit-candidate-party.css">
+</head>
+<body>
+<div class="sidebar">
+    <h2>eVoting Kosova</h2>
+    <a href="/admin/dashboard">Kthehu në Panelin e Administratorit</a>
+</div>
+<div class="main-content">
+    <div class="header">Ndrysho Zgjedhjen</div>
+
+    <form th:action="@{/admin/election/{id}/edit(id=${election.id})}" method="post">
+        <div>
+            <label for="name">Emri i Zgjedhjes:</label>
+            <input type="text" id="name" name="name" th:value="${election.name}" required>
+        </div>
+
+        <div>
+            <label for="description">Përshkrimi:</label>
+            <textarea id="description" name="description" th:text="${election.description}"></textarea>
+        </div>
+
+        <div>
+            <label for="startDate">Data e Fillimit:</label>
+            <input type="datetime-local" id="startDate" name="startDate" th:value="${startDateFormatted}" required>
+        </div>
+
+        <div>
+            <label for="endDate">Data e Mbarimit:</label>
+            <input type="datetime-local" id="endDate" name="endDate" th:value="${endDateFormatted}" required>
+        </div>
+
+        <button type="submit" class="button">Përditëso Zgjedhjen</button>
+    </form>
+
+    <div th:if="${success}">
+        <p class="success-message" th:text="${success}"></p>
+    </div>
+    <div th:if="${error}">
+        <p class="error-message" th:text="${error}"></p>
+    </div>
+</div>
+</body>
+</html>

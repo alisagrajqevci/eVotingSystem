@@ -1,0 +1,224 @@
+:root {
+    --primary-blue: #004c99;
+    --secondary-blue: #0073e6;
+    --light-blue: #e6f2ff;
+    --text-color: #333;
+    --font-family: "Merriweather", serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: var(--font-family);
+}
+
+body {
+    display: flex;
+    min-height: 100vh;
+    background-color: var(--light-blue);
+}
+
+.sidebar {
+    width: 250px;
+    background-color: var(--primary-blue);
+    color: white;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.sidebar a {
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+    border-radius: 5px;
+    display: block;
+    transition: background-color 0.3s, font-weight 0.3s;
+    cursor: pointer;
+}
+
+.sidebar a:hover {
+    background-color: var(--secondary-blue);
+}
+
+.sidebar a.active {
+    background-color: var(--secondary-blue);
+    font-weight: bold;
+}
+
+.sidebar h2 {
+    font-size: 24px;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.main-content {
+    flex: 1;
+    padding: 20px;
+}
+
+.header {
+    background-color: var(--primary-blue);
+    color: white;
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    text-align: center;
+    font-weight: 700;
+}
+
+.section {
+    display: none;
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.section.active {
+    display: block;
+}
+
+.button {
+    display: inline-block;
+    background-color: var(--secondary-blue);
+    color: white;
+    padding: 10px 20px;
+    margin-top: 5px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+    text-align: center;
+}
+
+.button:hover {
+    background-color: var(--primary-blue);
+}
+
+.results-chart {
+    width: 100%;
+    height: 400px;
+    background-color: var(--light-blue);
+    border: 1px solid var(--secondary-blue);
+    border-radius: 5px;
+    padding: 20px;
+}
+
+.elections-list,
+.parties-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.elections-list li,
+.parties-list li {
+    padding: 10px;
+    background-color: var(--light-blue);
+    margin-bottom: 10px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logout-button {
+    background-color: var(--secondary-blue);
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    text-align: center;
+    margin-top: auto;
+}
+
+.logout-button:hover {
+    background-color: #0c3a67;
+}
+
+#feedback-list {
+    margin-top: 20px;
+}
+
+.feedback-item {
+    padding: 15px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.feedback-item h4 {
+    margin: 0;
+    font-size: 18px;
+    color: #003366;
+}
+
+.feedback-item p {
+    margin: 5px 0;
+}
+
+.feedback-item p strong {
+    color: #003366;
+}
+
+.party-section {
+    margin-top: 10px;
+    margin-bottom: 20px;
+    border-bottom: 2px solid var(--primary-blue);
+    padding-bottom: 10px;
+}
+
+.party-name {
+    margin-left: 22px;
+    font-size: 20px;
+    font-weight: bold;
+    color: var(--primary-blue);
+    margin-bottom: 10px;
+}
+.candidates-list{
+    list-style-type: none;
+    padding: 0;
+}
+
+.candidate-sublist {
+    list-style-type: none;
+    padding-left: 20px;
+}
+
+.candidate-sublist li {
+    margin-bottom: 10px;
+}
+
+.candidate-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--light-blue);
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.candidate-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.candidate-divider {
+    border: none;
+    height: 1px;
+    background-color: var(--primary-blue);
+    margin: 10px 0;
+}
+#results-list p {
+    font-size: 18px;
+    color: var(--primary-blue);
+    margin-bottom: 5px;
+}

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>eVoting Ballot</title>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather&family=Open+Sans&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/ballot.css">
+</head>
+<body>
+
+<div class="ballot-container">
+    <h1>eVoting Ballot</h1>
+    <div class="instructions">
+        <p>Zgjidhni një parti dhe zgjidhni kandidatët tuaj. Mund të zgjidhni nga 1 deri në 10 kandidatë nga partia e zgjedhur.</p>
+    </div>
+    <form id="ballotForm" th:action="@{/ballot}" method="post">
+        <input type="hidden" name="voterId" th:value="${voter.id}" />
+
+        <div class="party-section">
+            <h3>Zgjidhni Partinë</h3>
+            <div id="parties-list"></div>
+        </div>
+
+        <div class="candidate-section">
+            <h3>Zgjidhni Kandidatët</h3>
+            <div id="candidates-list"></div>
+        </div>
+
+        <button type="submit" class="submit-btn">Dorëzo Votën</button>
+
+        <div th:if="${param.error == 'alreadyVoted'}" class="error-message">
+            <p>u keni votuar tashmë. Nuk mund të dorëzoni një votë tjetër.</p>
+        </div>
+
+    </form>
+
+    <div id="feedback-message" class="feedback"></div>
+</div>
+
+<script src="/js/ballot.js"></script>
+</body>
+</html>

@@ -1,0 +1,124 @@
+body {
+    font-family: 'Merriweather', serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(to bottom, #007bff, #e3f8ff); /* Updated to match eVoting */
+    color: white;
+    overflow: hidden;
+}
+
+.shape {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    animation: float 6s infinite ease-in-out;
+    z-index: 0;
+}
+
+.shape:nth-child(1) {
+    width: 150px;
+    height: 150px;
+    top: 20%;
+    left: 10%;
+    animation-delay: 0s;
+}
+
+.shape:nth-child(2) {
+    width: 200px;
+    height: 200px;
+    top: 50%;
+    right: 15%;
+    animation-delay: 2s;
+}
+
+.shape:nth-child(3) {
+    width: 120px;
+    height: 120px;
+    bottom: 15%;
+    left: 30%;
+    animation-delay: 4s;
+}
+
+/* Container */
+.container {
+    position: relative;
+    text-align: center;
+    padding: 3rem;
+    max-width: 600px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 25px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    animation: popIn 1s ease-out;
+    z-index: 1;
+}
+
+/* Headline */
+h1 {
+    font-size: 2.8rem;
+    margin-bottom: 1rem;
+    color: #0056b3; /* Deep royal blue accent */
+    font-weight: bold;
+    text-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    animation: bounceIn 1.5s ease;
+}
+
+/* Paragraph */
+p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    line-height: 1.6;
+    color: rgba(0, 0, 0, 0.7);
+}
+
+/* Button */
+a {
+    display: inline-block;
+    padding: 0.8rem 2rem;
+    font-size: 1rem;
+    color: white;
+    text-decoration: none;
+    background: linear-gradient(to right, #0056b3, #007bff); /* eVoting matching blue gradient */
+    border-radius: 50px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+a:hover {
+    background: linear-gradient(to right, #007bff, #0056b3);
+    transform: scale(1.1);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Animations */
+@keyframes popIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes bounceIn {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
