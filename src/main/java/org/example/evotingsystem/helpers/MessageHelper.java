@@ -1,4 +1,4 @@
-package org.example.evotingsystem.exceptions;
+package org.example.evotingsystem.helpers;
 
 import org.springframework.stereotype.Component;
 

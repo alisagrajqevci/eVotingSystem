@@ -1,3 +1,5 @@
+let resultsChart;
+
 function showSection(sectionId) {
     const sections = document.querySelectorAll('.section');
     sections.forEach(section => section.classList.remove('active'));
@@ -27,6 +29,7 @@ window.onload = function() {
     fetchFeedback();
 };
 
+// Fetch real-time voting results and update the chart
 function fetchRealTimeResults() {
     fetch('/api/v1/voted-parties')
         .then(response => response.json())
@@ -39,6 +42,7 @@ function fetchRealTimeResults() {
                 const winningPartyIndex = values.indexOf(maxVotes);
                 const winningParty = labels[winningPartyIndex];
 
+                // Initialize or update the chart
                 if (resultsChart) {
                     resultsChart.data.labels = labels;
                     resultsChart.data.datasets[0].data = values;
@@ -69,6 +73,7 @@ function fetchRealTimeResults() {
                     });
                 }
 
+                // Update the winner information
                 const winnerSection = document.querySelector('.results-chart');
                 const winnerElement = document.getElementById('winner');
                 if (!winnerElement) {
@@ -85,11 +90,11 @@ function fetchRealTimeResults() {
         })
         .catch(error => {
             console.error('Gabim në marrjen e rezultateve:', error);
-            document.getElementById('results-list').innerHTML =
-                '<p>Gabim në ngarkimin e rezultateve.</p>';
+            document.getElementById('results-list').innerHTML = '<p>Gabim në ngarkimin e rezultateve.</p>';
         });
 }
 
+// Fetch and display feedback
 function fetchFeedback() {
     fetch('/api/v1/admin/admin-dashboard/feedback')
         .then(response => response.json())
